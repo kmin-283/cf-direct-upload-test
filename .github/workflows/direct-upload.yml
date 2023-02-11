@@ -4,8 +4,6 @@ on: [push]
 jobs:
   release:
     runs-on: ubuntu-latest
-    env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLATE_API_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v1
@@ -20,8 +18,8 @@ jobs:
         run: |
           yarn build
 
-      - name: deploy only html file
-      - uses: cloudflare/pages-action@1
+      - name: publish
+        uses: cloudflare/pages-action@1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           projectName: cf-direct-upload-test
