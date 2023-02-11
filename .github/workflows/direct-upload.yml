@@ -29,4 +29,10 @@ jobs:
           accountId: fd4f62db329f7b545ffca53ea9d9b98f
           projectName: cf-direct-upload-test
           directory: dist
-      
+
+      - name: upload assets
+        uses: wei/rclone@v1
+        env:
+          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+        with:
+          args: copy assets cf-direct-upload-test:assets
