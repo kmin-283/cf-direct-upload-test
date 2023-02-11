@@ -21,6 +21,9 @@ jobs:
           yarn build
 
       - name: deploy only html file
-        run: |
-          CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" npx wrangler pages publish /dist/index.html --project-name=cf-direct-upload-test
+      - uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          projectName: cf-direct-upload-test
+          directory: dist/index.html
       
