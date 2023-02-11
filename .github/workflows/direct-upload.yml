@@ -30,6 +30,10 @@ jobs:
           projectName: cf-direct-upload-test
           directory: dist
 
+      - name: cat
+        run: |
+          cat ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
       - name: upload assets
         uses: wei/rclone@v1
         env:
