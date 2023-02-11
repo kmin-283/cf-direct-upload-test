@@ -4,6 +4,8 @@ on: [push]
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLATE_API_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v1
@@ -18,11 +20,7 @@ jobs:
         run: |
           yarn build
 
-      - name: install wrangler
-        run: |
-          yarn add wrangler
-
       - name: deploy only html file
         run: |
-          wrangler pages publish /dist/index.html
+          CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" wrangler pages publish /dist/index.html
       
