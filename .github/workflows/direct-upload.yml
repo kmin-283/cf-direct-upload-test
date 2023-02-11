@@ -35,4 +35,4 @@ jobs:
         env:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
         with:
-          args: copy assets r2:cf-direct-upload-test/
+          args: copy assets r2:cf-direct-upload-test
