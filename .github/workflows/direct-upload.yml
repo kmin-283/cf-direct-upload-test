@@ -32,7 +32,7 @@ jobs:
 
       - name: cat
         run: |
-          cat ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          cat ${{ secrets.RCLONE_CONF }}
 
       - name: upload assets
         uses: wei/rclone@v1
