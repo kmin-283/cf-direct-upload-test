@@ -16,15 +16,11 @@ jobs:
         run: |
           yarn
 
-      - name: install wrangler
-        run: |
-          yarn global add @cloudflare/wrangler
-
       - name: build
         run: |
           yarn build
 
       - name: deploy only html file
         run: |
-          CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" wrangler pages publish /dist/index.html
+          CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" npx wrangler pages publish /dist/index.html --project-name=cf-direct-upload-test
       
