@@ -30,12 +30,6 @@ jobs:
           projectName: cf-direct-upload-test
           directory: dist
 
-      - name: cat
-        env:
-          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
-        run: |
-          cat "$RCLONE_CONF"
-
       - name: upload assets
         uses: wei/rclone@v1
         env:
