@@ -31,8 +31,10 @@ jobs:
           directory: dist
 
       - name: cat
+        env:
+          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
         run: |
-          cat ${{ secrets.RCLONE_CONF }}
+          cat "$secrets.RCLONE_CONF"
 
       - name: upload assets
         uses: wei/rclone@v1
