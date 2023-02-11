@@ -22,6 +22,7 @@ jobs:
         uses: cloudflare/pages-action@1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: fd4f62db329f7b545ffca53ea9d9b98f
           projectName: cf-direct-upload-test
           directory: dist/index.html
       
