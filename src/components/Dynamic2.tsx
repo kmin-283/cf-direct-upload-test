@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AppScreen } from "@stackflow/plugin-basic-ui";
 import { useFlow } from '../stackflow';
 
@@ -7,9 +7,23 @@ const Dynamic2 = () => {
     const onClick = () => {
         push('Example3', {})
     }
+
+    const [age, setAge] = useState(0)
+
+    useEffect(() => {
+        const a = async () => {
+            fetch('https://api.agify.io?name=michael').then(async (res) => {
+                const json: {age: number} = await res.json();
+                setAge(json.age);
+            })
+        }
+        a();
+    },[])
+
   return (
     <div>
         <div>example2!! after!!~~</div>
+        <p>{age}</p>
         <button onClick={onClick}>go example3</button>
     </div>
   )
