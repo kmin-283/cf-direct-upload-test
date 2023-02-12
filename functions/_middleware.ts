@@ -21,7 +21,9 @@ export const onRequestGet = async (context) => {
     // console.log('res4', v);
     // file extension과 content-type이 일치하지 않는 경우가 있음 -> 그럴 때 에러 발생시키기
 
-    if (context.request.url !== '/' && res.headers.get('content-type').includes("text/html")) {
+    const url = new URL(context.request.url);
+
+    if (url.pathname !== '/' && res.headers.get('content-type').includes("text/html")) {
       console.log(context.request.url);
       if (context.request.url.slice(-4) !== 'html') {
         throw new Error('find assets in r2 storage');
