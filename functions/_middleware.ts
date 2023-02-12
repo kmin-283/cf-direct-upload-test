@@ -6,6 +6,10 @@ interface Env {
 
 
 export const onRequestGet: PagesFunction<Env | any> = async (context) => {  
+  const url = new URL(context.request.url);
+  const obj = await context.env.CF_DIRECT_UPLOAD_TEST.get(url.pathname);
+  console.log('obj', obj);
+  
   try {
     const res = await context.env.ASSETS.fetch(context.request.url);
 
