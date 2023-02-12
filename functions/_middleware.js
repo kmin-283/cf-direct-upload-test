@@ -16,4 +16,5 @@ export async function onRequest(context) {
     //   return new Response('Not found', { status: 404 });  
     // }
     // return new Response(obj.body);
+    return context
 }
