@@ -10,7 +10,12 @@ export const onRequestGet: PagesFunction<Env | any> = async (context) => {
   const obj = await context.env.CF_DIRECT_UPLOAD_TEST.get(`cf-direct-upload-test${url.pathname}`);
 
   if (obj) {
-    return new Response(obj.body as any);
+    console.log('obj', obj.body);
+    return new Response(obj.body as any, {
+      headers: {
+        'Content-Type': 'application/javascript',
+      }
+    });
   }
 
   try {
