@@ -2,19 +2,17 @@ import React from 'react'
 import { AppScreen } from "@stackflow/plugin-basic-ui";
 import { useFlow } from '../stackflow';
 
-const Dynamic1 = React.lazy(() => import ('../components/Dynamic1'));
-
-
-const example1 = () => {
+const Dynamic1 = () => {
     const {push} = useFlow()
     const onClick = () => {
         push('Example2', {})
     }
   return (
-    <AppScreen>
-<Dynamic1/>
-    </AppScreen>
+    <div>
+        <div>example1</div>
+        <button onClick={onClick}>go example2</button>
+    </div>
   )
 }
 
-export default example1
+export default Dynamic1

@@ -18,10 +18,6 @@ jobs:
         run: |
           yarn build
 
-      - name: mv assets folder
-        run: |
-          mv dist/assets assets
-
       - name: publish
         uses: cloudflare/pages-action@1
         with:
@@ -35,4 +31,4 @@ jobs:
         env:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
         with:
-          args: copy assets r2demo:cf-direct-upload-test
+          args: copy dist r2demo:cf-direct-upload-test
