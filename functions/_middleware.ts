@@ -9,9 +9,9 @@ export const onRequestGet = async (context) => {
   try {
     const res = await context.env.ASSETS.fetch(context.request.url);
 
-    if (context.request.url.slice(-3) === '.js') {
-      throw new Error('find assets in r2 storage');
-    }
+    // if (context.request.url.slice(-3) === '.js') {
+    //   throw new Error('find assets in r2 storage');
+    // }
 
     if (res.ok) {
       return res;
