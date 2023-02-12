@@ -6,7 +6,7 @@ export async function onRequestGet(context) {
     // return new Response(obj.body);
     const url = new URL(context.request.url);
     console.log(url);
-    const res = await env.ASSETS.fetch(url.pathname);
+    const res = await context.env.ASSETS.fetch(url.pathname);
     console.log(res);
     
     return context.next();
