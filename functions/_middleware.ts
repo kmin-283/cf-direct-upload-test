@@ -9,6 +9,7 @@ export const onRequestGet: PagesFunction<Env | any> = async (context) => {
   try {
     const res = await context.env.ASSETS.fetch(context.request.url);
 
+    console.log('res', res);
     if (res.ok) {
       return res;
     }
@@ -19,7 +20,7 @@ export const onRequestGet: PagesFunction<Env | any> = async (context) => {
       return new Response('Not found', { status: 404 });  
     }
 
-    console.log(obj);
+    console.log('obj', obj);
     return new Response(obj.body as any);
   }
 
