@@ -2,7 +2,7 @@
 // assets을 못찾았으면 r2에서 찾아서 서빙하기
 
 export async function onRequest(context) {
-    const reqPath = context.event.request.url
+    // const reqPath = context.event.request.url
     console.log(context);
 
     // const tryFirst = await context.env.ASSETS.fetch()
@@ -16,5 +16,5 @@ export async function onRequest(context) {
     //   return new Response('Not found', { status: 404 });  
     // }
     // return new Response(obj.body);
-    return context
+    return context.next()
 }
