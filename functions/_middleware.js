@@ -3,7 +3,7 @@
 
 export async function onRequest(context) {
     // const reqPath = context.event.request.url
-    console.log(context);
+    console.log('middleware', context);
 
     // const tryFirst = await context.env.ASSETS.fetch()
     // // fetch에 실패하면 r2에서 정적파일을 가져다가 서빙
