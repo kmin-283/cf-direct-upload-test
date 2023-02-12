@@ -8,6 +8,8 @@ interface Env {
 export const onRequestGet: PagesFunction<Env | any> = async (context) => {  
   const url = new URL(context.request.url);
   console.log('url', url.pathname);
+  const list = await context.env.CF_DIRECT_UPLOAD_TEST.list();
+  console.log('list', list);
   const obj = await context.env.CF_DIRECT_UPLOAD_TEST.get(`cf-direct-upload-test/${url.pathname}`);
   console.log('obj', obj);
 
