@@ -5,8 +5,12 @@ export async function onRequestGet(context) {
     // }  
     // return new Response(obj.body);
     const url = new URL(context.request.url);
-    console.log(url);
-    const res = await context.env.ASSETS.fetch(url.pathname);
+    let pathname = url.pathname;
+    if (url.pathname === '/') {
+        pathname = '/index.html';
+    }
+    console.log(pathname);
+    const res = await context.env.ASSETS.fetch(pathname);
     console.log(res);
     
     return context.next();
