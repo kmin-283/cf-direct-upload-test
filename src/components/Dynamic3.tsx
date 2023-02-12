@@ -2,17 +2,17 @@ import React from 'react'
 import { AppScreen } from "@stackflow/plugin-basic-ui";
 import { useFlow } from '../stackflow';
 
-const Dynamic2 = () => {
+const Dynamic3 = () => {
     const {push} = useFlow()
     const onClick = () => {
-        push('Example3', {})
+        push('Example1', {})
     }
   return (
     <div>
-        <div>example2</div>
-        <button onClick={onClick}>go example3</button>
+        <div>example3</div>
+        <button onClick={onClick}>go example1</button>
     </div>
   )
 }
 
-export default Dynamic2
+export default Dynamic3
