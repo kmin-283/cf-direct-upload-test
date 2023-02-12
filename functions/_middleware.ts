@@ -12,15 +12,16 @@ export const onRequestGet: PagesFunction<Env | any> = async (context) => {
     console.log('res', res);
     if (res.ok) {
       return res;
+    } else {
+      throw new Error('find assets in r2 storage');
     }
   } catch (error) {
-    const obj = await context.env.CF_DIRECT_UPLOAD_TEST.get(context.request.url);
-
+    const url = new URL(context.request.url);
+    const obj = await context.env.CF_DIRECT_UPLOAD_TEST.get(url.pathname);
+    console.log('obj', obj);
     if (!obj) {
       return new Response('Not found', { status: 404 });  
     }
-
-    console.log('obj', obj);
     return new Response(obj.body as any);
   }
 
