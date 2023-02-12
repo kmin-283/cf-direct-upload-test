@@ -11,6 +11,7 @@ export const onRequestGet = async (context) => {
 
   // cloudflare pages 도메인에 대한 asset get 요청만 처리해야 함.
   console.log('url', url);
+  console.log('url', url.host);
   if (url.host !== 'cf-direct-upload-test.pages.dev') {
     return context.next();
   }
