@@ -38,7 +38,7 @@ export const onRequestGet = async (context) => {
     }
   } catch (error) {
     const url = new URL(context.request.url);
-    const obj = await context.env.CF_DIRECT_UPLOAD_TEST.get(url.pathname);
+    const obj = await context.env.CF_DIRECT_UPLOAD_TEST.get(`cf-direct-upload-test${url.pathname}`);
     
     console.log('obj', obj);
 
