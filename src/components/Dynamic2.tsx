@@ -23,7 +23,7 @@ const Dynamic2 = () => {
   return (
     <div>
         <div>example2!! after!!~~</div>
-        <p>{age}</p>
+        <p>age is {age}</p>
         <button onClick={onClick}>go example3</button>
     </div>
   )
