@@ -13,19 +13,22 @@ export const onRequestGet = async (context) => {
     //   throw new Error('find assets in r2 storage');
     // }
 
-    console.log('res1', res);
-    console.log('res2', res.status);
-    console.log('res3', res.ok);
+    // console.log('res1', res);
+    // console.log('res2', res.status);
+    // console.log('res3', res.ok);
 
-    const v = res.headers.get('content-type');
-    console.log('res4', v);
+    // const v = res.headers.get('content-type');
+    // console.log('res4', v);
     // file extension과 content-type이 일치하지 않는 경우가 있음 -> 그럴 때 에러 발생시키기
 
-    if (res.ok) {
-      return res;
-    } else {
-      throw new Error('find assets in r2 storage');
+    if (context.request.url !== '/' && res.headers.get('content-type').includes("text/html")) {
+      console.log(context.request.url);
+      if (context.request.url.slice(-4) !== 'html') {
+        throw new Error('find assets in r2 storage');
+      }
     }
+
+    return res
   } catch (error) {
     const url = new URL(context.request.url);
     const obj = await context.env.CF_DIRECT_UPLOAD_TEST.get(`cf-direct-upload-test${url.pathname}`);
