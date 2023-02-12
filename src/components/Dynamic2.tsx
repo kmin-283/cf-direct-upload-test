@@ -9,7 +9,7 @@ const Dynamic2 = () => {
     }
   return (
     <div>
-        <div>example2 after after!!!!</div>
+        <div>example2 after after~~~!!!!</div>
         <button onClick={onClick}>go example1</button>
     </div>
   )
