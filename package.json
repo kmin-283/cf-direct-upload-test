@@ -15,6 +15,7 @@
     "@stackflow/plugin-renderer-basic": "^1.0.0",
     "@stackflow/plugin-stack-depth-change": "^1.0.0",
     "@stackflow/react": "^1.0.0",
+    "mrmime": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
